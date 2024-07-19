@@ -1,0 +1,75 @@
+ body.dark-theme {
+  background-color: #333;
+  color: #ddd;
+}
+
+body.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  color: #ddd;
+  border-bottom: 2px solid #3c3c3c;
+}
+
+.navbar .logo {
+  width: max(4vw, 70px);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  text-transform: capitalize;
+}
+
+.navbar ul li {
+  cursor: pointer;
+}
+
+.nav_right {
+  display: flex;
+  align-items: center;
+  gap: max(1vw, 20px);
+}
+
+.nav_right button {
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #393939;
+  cursor: pointer;
+  border: none;
+  text-transform: capitalize;
+}
+
+.navbar select {
+  background: transparent;
+  color: aliceblue;
+  border: 2px solid white;
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+
+.nav_right option {
+  background-color: #09005c;
+  color: #ddd;
+}
+
+.navbar.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar.dark {
+  background-color: #333;
+  color: #ddd;
+}

@@ -1,12 +1,4 @@
- body.dark-theme {
-  background-color: #333;
-  color: #ddd;
-}
 
-body.light-theme {
-  background-color: #fff;
-  color: #000;
-}
 
 .navbar {
   display: flex;
@@ -19,6 +11,7 @@ body.light-theme {
 
 .navbar .logo {
   width: max(4vw, 70px);
+  border-radius: 20px;
 }
 
 .navbar ul {

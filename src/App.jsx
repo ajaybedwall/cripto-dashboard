@@ -16,7 +16,6 @@ const App = () => {
     <div className='App'>
 
     </div>
-    </>
     <div className='app'>
       <Navbar/>
       <Routes>
@@ -27,7 +26,9 @@ const App = () => {
 
       
     </div>
-  )
-}
+    </>
 
-export default App
+  )
+}}
+
+export default App 

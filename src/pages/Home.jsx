@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { CoinContext } from "../context/CoinContext";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-// eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,7 +11,7 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [noResults, setNoResults] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; 
+  const itemsPerPage = 10;
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -48,11 +46,11 @@ const Home = () => {
     <div className="home">
       <div className="hero">
         <h1>
-          Largest <br /> crypto marketplace
+          Largest <br /> Crypto Marketplace
         </h1>
         <p>
-          Welcome to the world's Largest cryptocurrency marketplace. Sign up to
-          explore more about crypto
+          Welcome to the world's largest cryptocurrency marketplace. Sign up to
+          explore more about crypto.
         </p>
         <form onSubmit={handleSearchSubmit}>
           <input
@@ -60,6 +58,7 @@ const Home = () => {
             placeholder="Search Crypto"
             value={search}
             onChange={handleSearchChange}
+            aria-label="Search Cryptocurrency"
           />
           <button type="submit">Search</button>
         </form>
@@ -69,15 +68,15 @@ const Home = () => {
           <div className="no-results">No results found for your search.</div>
         ) : (
           <>
-            <div className="table-layout ">
+            <div className="table-layout">
               <p>#</p>
               <p>Coins</p>
               <p>Price</p>
               <p style={{ textAlign: "center" }}>24H Change</p>
               <p className="market">Market Cap</p>
             </div>
-            {displayCoin.slice(startIndex, endIndex).map((item, index) => (
-              <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
+            {displayCoin.slice(startIndex, endIndex).map((item) => (
+              <Link to={`/coin/${item.id}`} className="table-layout" key={item.id}>
                 <p>{item.market_cap_rank}</p>
                 <div className="coin-details">
                   <img src={item.image} alt={item.name} />
@@ -105,9 +104,9 @@ const Home = () => {
             page={currentPage}
             onChange={handlePageChange}
             color="primary"
-            backgroundColor = "primary"
-            variant="outlined" 
-            shape="rounded" 
+            variant="outlined"
+            shape="rounded"
+            aria-label="Pagination"
           />
         </Stack>
       </div>

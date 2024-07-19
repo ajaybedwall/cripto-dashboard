@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { CoinContext } from "../context/CoinContext";

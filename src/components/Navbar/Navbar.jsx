@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./Navbar.css";
 import codeworrier_logo from "../../assets/codeworrier_logo.png";

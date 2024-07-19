@@ -1,12 +1,16 @@
-
-
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%;
+  background: linear-gradient(to right, #4b6cb7, #182848); 
   color: #ddd;
-  border-bottom: 2px solid #3c3c3c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
+  transition: background-color 0.3s ease; 
 }
 
 .navbar .logo {
@@ -19,10 +23,35 @@
   list-style: none;
   gap: 40px;
   text-transform: capitalize;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
+  position: relative;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ff6f61;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar ul li:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.navbar ul li:hover {
+  color: #ff6f61; 
 }
 
 .nav_right {
@@ -38,10 +67,33 @@
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
-  color: #393939;
+  color: #fff;
+  background-color: #ff6f61; 
   cursor: pointer;
   border: none;
   text-transform: capitalize;
+  transition: background-color 0.3s ease; 
+}
+
+.nav_right button:hover {
+  background-color: #ff8a75; 
+}
+
+.nav_right button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav_right button:hover::before {
+  visibility: visible;
+  width: 100%;
 }
 
 .navbar select {
@@ -50,6 +102,11 @@
   border: 2px solid white;
   padding: 5px 8px;
   border-radius: 10px;
+  transition: border-color 0.3s ease; 
+}
+
+.navbar select:hover {
+  border-color: #ff6f61; 
 }
 
 .nav_right option {
@@ -58,11 +115,11 @@
 }
 
 .navbar.light {
-  background-color: #fff;
+  background-color: #F8F8FF;
   color: #000;
 }
 
 .navbar.dark {
-  background-color: #333;
+  background: linear-gradient(#0b004e, #09005c);  
   color: #ddd;
 }

@@ -114,12 +114,13 @@
   color: #ddd;
 }
 
+.navbar.dark {
+  background: linear-gradient(#0b004e, #09005c);  
+  color: #ddd;
+}
+
 .navbar.light {
   background-color: #F8F8FF;
   color: #000;
 }
 
-.navbar.dark {
-  background: linear-gradient(#0b004e, #09005c);  
-  color: #ddd;
-}

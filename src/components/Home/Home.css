@@ -1,3 +1,71 @@
+/* Default styles */
+.home {
+  padding: 0 10px;
+  padding-bottom: 100px;
+  color: #e3e3e3;
+}
+
+/* Dark theme styles */
+.home.dark .hero {
+  background-color: #333;
+  color: #ddd;
+}
+
+.home.dark .hero h1 {
+  color: #878787;
+}
+
+.home.dark .hero p {
+  color: gray;
+}
+
+.home.dark .crypto-table {
+  background: linear-gradient(rgba(84, 3, 255, 0.15), rgba(105, 2, 153, 0.15));
+  color: gray;
+}
+
+.home.dark .table-layout {
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.home.dark .table-layout:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.home.dark .market {
+  color: gray;
+}
+
+/* Light theme styles */
+.home.light .hero {
+  background-color: #fff;
+  color: #000;
+}
+
+.home.light .hero h1 {
+  color: #333;
+}
+
+.home.light .hero p {
+  color: #555;
+}
+
+.home.light .crypto-table {
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(240, 240, 240, 0.85));
+  color: #000;
+}
+
+.home.light .table-layout {
+  border-bottom: 1px solid #ddd;
+}
+
+.home.light .table-layout:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.home.light .market {
+  color: #000;
+}
 .home {
   padding: 0px 10px;
   padding-bottom: 100px;
@@ -17,7 +85,7 @@
 
 .hero h1 {
   font-size: clamp(24px, 4vw, 36px);
-  color: #a9a9a9;
+  color: #878787;
   font-weight: 700;
   text-shadow: 2px 2px 5px rgba(45, 43, 43, 0.5); /* Text shadow */
 }

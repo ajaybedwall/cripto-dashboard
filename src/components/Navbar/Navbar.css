@@ -1,3 +1,12 @@
+body.dark-theme {  
+  background-color: #333;
+  color: #ddd;
+}
+
+body.light-theme {
+  background-color: #a39e9e;
+  color: #000;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -114,7 +123,7 @@
   color: #ddd;
 }
 
-.navbar.dark {
+/* .navbar.dark {
   background: linear-gradient(#0b004e, #09005c);  
   color: #ddd;
 }
@@ -123,4 +132,4 @@
   background-color: #F8F8FF;
   color: #000;
 }
-
+ */

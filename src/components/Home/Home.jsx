@@ -1,13 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
-import { CoinContext } from "../context/CoinContext";
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import { CoinContext } from "../../context/CoinContext";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ isDarkTheme }) => {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
   const [search, setSearch] = useState("");
@@ -32,20 +30,16 @@ const Home = () => {
     setNoResults(filteredCoins.length === 0);
   };
 
-  // Calculate total pages for pagination
   const totalPages = Math.ceil(displayCoin.length / itemsPerPage);
-
-  // Function to handle page change
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
 
-  // Calculate the index range for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
   return (
-    <div className="home">
+    <div className={`home ${isDarkTheme ? "dark" : "light"}`}>
       <div className="hero">
         <h1>
           Largest <br /> Crypto Marketplace
@@ -78,22 +72,31 @@ const Home = () => {
               <p className="market">Market Cap</p>
             </div>
             {displayCoin.slice(startIndex, endIndex).map((item) => (
-              <Link to={`/coin/${item.id}`} className="table-layout" key={item.id}>
+              <Link
+                to={`/coin/${item.id}`}
+                className="table-layout"
+                key={item.id}
+              >
                 <p>{item.market_cap_rank}</p>
                 <div className="coin-details">
                   <img src={item.image} alt={item.name} />
                   <p>{`${item.name} - ${item.symbol.toUpperCase()}`}</p>
                 </div>
-                <p>{`${currency.symbol}${item.current_price.toLocaleString()}`}</p>
+                <p>{`${
+                  currency.symbol
+                }${item.current_price.toLocaleString()}`}</p>
                 <p
                   style={{
                     textAlign: "center",
-                    color: item.price_change_percentage_24h > 0 ? "green" : "red",
+                    color:
+                      item.price_change_percentage_24h > 0 ? "green" : "red",
                   }}
                 >
                   {item.price_change_percentage_24h.toFixed(2)}%
                 </p>
-                <p className="market">{`${currency.symbol}${item.market_cap.toLocaleString()}`}</p>
+                <p className="market">{`${
+                  currency.symbol
+                }${item.market_cap.toLocaleString()}`}</p>
               </Link>
             ))}
           </>

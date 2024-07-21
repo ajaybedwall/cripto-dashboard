@@ -3,6 +3,7 @@ import "./Navbar.css";
 import codeworrier_logo from "../../assets/codeworrier_logo.png";
 import { signInWithGoogle, signOutUser, auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Home from "../Home/Home"; // Import the Home component
 
 function Navbar() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -50,45 +51,43 @@ function Navbar() {
   }, []);
 
   return (
-    <div className={`navbar ${isDarkTheme ? "dark" : "light"}`}>
-      <img className="logo" src={codeworrier_logo} alt="Codeworrier Logo" />
-      <ul>
-        <li>Home</li>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>About</li>
-      </ul>
+    <div>
+      <div className={`navbar ${isDarkTheme ? "dark" : "light"}`}>
+        <img className="logo" src={codeworrier_logo} alt="Codeworrier Logo" />
+        <ul>
+          <li>Home</li>
+          <li>Features</li>
+          <li>Pricing</li>
+          <li>About</li>
+        </ul>
 
-      <div className="nav_right">
-        <select
-          name="currency"
-          id="currency-select"
-          value={currency}
-          onChange={handleCurrencyChange}
-        >
-          <option value="inr">INR</option>
-          <option value="usd">USD</option>
-          <option value="eur">EUR</option>
-        </select>
+        <div className="nav_right">
+          <select
+            name="currency"
+            id="currency-select"
+            value={currency}
+            onChange={handleCurrencyChange}
+          >
+            <option value="inr">INR</option>
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+          </select>
 
-        {user ? (
-          <>
-            <span>Welcome, {user.displayName}</span>
-            <button onClick={handleLogout}>Logout</button>
-          </>
-        ) : (
-          <button onClick={handleLogin}>Sign Up</button>
-        )}
+          {user ? (
+            <>
+              <span>Welcome, {user.displayName}</span>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <button onClick={handleLogin}>Sign Up</button>
+          )}
 
-        <button
-          onClick={toggleTheme}
-          aria-label={
-            isDarkTheme ?  "Switch to Dark Mode" :"Switch to Light Mode"
-          }
-        >
-          {isDarkTheme ?  "Light Mode" :"Dark Mode"  }
-        </button>
+          <button onClick={toggleTheme}>
+            {isDarkTheme ? "Light Mode" : "Dark Mode"}
+          </button>
+        </div>
       </div>
+      <Home isDarkTheme={isDarkTheme} /> {/* Pass isDarkTheme to Home */}
     </div>
   );
 }

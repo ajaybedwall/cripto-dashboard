@@ -19,13 +19,4 @@ a{
   
   } */
   
-  body.dark-theme {
-  background:linear-gradient(#0b004e,#1d152f,#002834);     
-  background-color: #333;
-  color: #ddd;
-}
-
-body.light-theme {
-  background-color: #a39e9e;
-  color: #000;
-}
+  

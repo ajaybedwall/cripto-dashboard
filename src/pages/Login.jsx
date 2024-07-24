@@ -1,11 +1,15 @@
-
+// src/pages/Login.js
 import React from "react";
-import { signInWithGoogle } from "../firebase"; 
+import { useNavigate } from "react-router-dom";
+import { signInWithGoogle } from "../firebase";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
       await signInWithGoogle();
+      navigate("/"); // Navigate to Home after successful login
     } catch (error) {
       console.error("Login Failed:", error);
     }

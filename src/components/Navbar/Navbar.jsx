@@ -1,14 +1,16 @@
+// src/components/Navbar/Navbar.js
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import codeworrier_logo from "../../assets/codeworrier_logo.png";
 import { signInWithGoogle, signOutUser, auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import Home from "../Home/Home"; // Import the Home component
 
 function Navbar() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const [currency, setCurrency] = useState("inr");
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setIsDarkTheme((prevTheme) => {
@@ -26,6 +28,7 @@ function Navbar() {
   const handleLogin = async () => {
     try {
       await signInWithGoogle();
+      navigate("/"); // Navigate to Home after successful login
     } catch (error) {
       console.error("Login Failed:", error);
     }
@@ -34,6 +37,7 @@ function Navbar() {
   const handleLogout = async () => {
     try {
       await signOutUser();
+      navigate("/login"); // Optionally navigate to Login after logout
     } catch (error) {
       console.error("Logout Failed:", error);
     }
@@ -87,7 +91,6 @@ function Navbar() {
           </button>
         </div>
       </div>
-      <Home isDarkTheme={isDarkTheme} /> {/* Pass isDarkTheme to Home */}
     </div>
   );
 }
